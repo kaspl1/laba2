@@ -1,15 +1,16 @@
 from datetime import datetime
 
 def calculateAge():
-    # Запрашиваем дату рождения пользователя
-    birthDateStr = input("Введите дату рождения (день/месяц/год): ")
-    
-    # Преобразуем введённую строку в объект datetime
-    try:
-        birthDate = datetime.strptime(birthDateStr, "%d/%m/%Y")
-    except ValueError:
-        print("Некорректный формат даты. Используйте формат день/месяц/год.")
-        return
+    while True:
+        # Запрашиваем дату рождения пользователя
+        birthDateStr = input("Введите дату рождения (день/месяц/год): ")
+        
+        # Преобразуем введённую строку в объект datetime
+        try:
+            birthDate = datetime.strptime(birthDateStr, "%d/%m/%Y")
+            break  # Если дата введена корректно, выходим из цикла
+        except ValueError:
+            print("Некорректный формат даты. Используйте формат день/месяц/год.")
     
     # Получаем текущую дату
     today = datetime.today()
